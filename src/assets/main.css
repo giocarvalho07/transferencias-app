@@ -1,0 +1,206 @@
+/* src/assets/main.css */
+body {
+  font-family: sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Garante que o body ocupe pelo menos a altura da tela */
+  display: flex;
+  flex-direction: column; /* Alinha os filhos em coluna */
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: flex-start; /* Alinha o conteúdo ao topo inicialmente */
+}
+
+#app {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 95%; /* Ocupa 95% da largura */
+  max-width: 1200px; /* Largura máxima para telas maiores */
+  margin-top: 20px; /* Adiciona um pouco de espaço do topo */
+  margin-bottom: 20px; /* Adiciona um pouco de espaço abaixo */
+  box-sizing: border-box; /* Garante que padding e border não aumentem a largura */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Estica os filhos para preencher a largura */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 0 10px; /* Adiciona um pouco de padding nas laterais do header */
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 28px; /* Aumenta um pouco o tamanho do logo */
+  font-weight: bold;
+  color: #333;
+}
+
+.logo-accent {
+  color: #007bff;
+}
+
+nav {
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #555;
+}
+
+nav a.router-link-exact-active {
+  color: #007bff;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.success, .error {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.success {
+  color: #28a745;
+  background-color: #f0fff0;
+  border: 1px solid #c3e6cb;
+}
+
+.error {
+  color: #dc3545;
+  background-color: #fff0f0;
+  border: 1px solid #f5c6cb;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  color: #333;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.loading, .error {
+  margin-top: 10px;
+  font-style: italic;
+  color: #777;
+}
+
+
+/* src/assets/main.css */
+/* ... estilos anteriores ... */
+
+/* Para telas menores que 768px (tamanho típico de tablets) */
+@media (max-width: 767px) {
+  #app {
+    width: 98%; /* Ocupa mais largura em telas menores */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+  }
+
+  header {
+    flex-direction: column; /* Empilha logo e navegação em telas menores */
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+
+  nav a {
+    margin: 0 10px;
+    font-size: 14px;
+  }
+
+  .logo {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+}
+
+/* Para telas ainda menores (celulares) você pode adicionar mais ajustes se necessário */
+@media (max-width: 480px) {
+  nav a {
+    margin: 0 5px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+}
