@@ -28,23 +28,23 @@ A interface é minimalista, com um layout em preto e branco refinado e utiliza �
 
 ### Estrutura do Projeto
 
-transferencias-app/
-├── public/
-│   └── index.html
-│   └── ... (outros arquivos públicos)
-└── src/
-├── assets/
-│   └── logo.png (se você adicionar um logo)
-│   └── main.css (estilos globais)
-├── components/
-│   ├── AgendamentoTransferencia.vue (formulário de agendamento)
-│   └── ExtratoTransferencias.vue (lista de transferências)
-├── router/
-│   └── index.js (configuração das rotas)
-├── store/
-│   └── index.js (se você estiver usando Vuex para gerenciamento de estado)
-├── App.vue (componente principal da aplicação)
-└── main.js (ponto de entrada da aplicação)
+transferencias-app/  </br>
+├── public/ </br>
+│   └── index.html </br>
+│   └── ... (outros arquivos públicos) </br>
+└── src/ </br>
+├── assets/ </br>
+│   └── logo.png (se você adicionar um logo) </br>
+│   └── main.css (estilos globais) </br>
+├── components/ </br>
+│   ├── AgendamentoTransferencia.vue (formulário de agendamento) </br>
+│   └── ExtratoTransferencias.vue (lista de transferências) </br>
+├── router/ </br>
+│   └── index.js (configuração das rotas) </br>
+├── store/ </br>
+│   └── index.js (se você estiver usando Vuex para gerenciamento de estado) </br>
+├── App.vue (componente principal da aplicação) </br>
+└── main.js (ponto de entrada da aplicação) </br>
 
 ### Configuração
 
