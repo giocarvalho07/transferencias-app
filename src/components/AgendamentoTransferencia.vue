@@ -5,15 +5,15 @@
       <br>
       <div>
         <label for="contaOrigem"><span aria-hidden="true"></span> Conta de Origem:</label>
-        <input type="text" id="contaOrigem" v-model="transferencia.contaOrigem" placeholder="XXXXXXXXXX" required>
+        <input type="text" id="contaOrigem" v-model="transferencia.contaOrigem" v-mask="'##########'" placeholder="XXXXXXXXXX" required>
       </div>
       <div>
         <label for="contaDestino"><span aria-hidden="true"></span> Conta de Destino:</label>
-        <input type="text" id="contaDestino" v-model="transferencia.contaDestino" placeholder="XXXXXXXXXX" required>
+        <input type="text" id="contaDestino" v-model="transferencia.contaDestino" v-mask="'##########'" placeholder="XXXXXXXXXX" required>
       </div>
       <div>
         <label for="valor"><span aria-hidden="true"></span> Valor da Transferência (R$):</label>
-        <input type="number" id="valor" v-model.number="transferencia.valor" step="0.01" required>
+        <input type="number" id="valor" v-model.number="transferencia.valor" step="0.01" @input="formatarValor" required>
       </div>
       <div>
         <label for="dataTransferencia"><span aria-hidden="true"></span> Data da Transferência:</label>
@@ -27,12 +27,14 @@
 
 <script>
 import axios from 'axios';
+import { mask } from 'v-mask';
 
 export default {
+  directives: { mask },
   data() {
     return {
       transferencia: {
-        contaOrigem: '0000000000', // Valor padrão para facilitar o teste
+        contaOrigem: '',
         contaDestino: '',
         valor: null,
         dataTransferencia: this.hoje()
@@ -49,9 +51,14 @@ export default {
       const day = String(today.getDate()).padStart(2, '0');
       return `${year}-${month}-${day}`;
     },
+    formatarValor() {
+      // Remove caracteres não numéricos e não vírgula/ponto
+      this.transferencia.valor = String(this.transferencia.valor).replace(/[^0-9.,]/g, '');
+      // Aqui você pode adicionar mais lógica para garantir apenas uma vírgula/ponto
+    },
     async agendar() {
       try {
-        const response = await axios.post('http://localhost:8080/api/transferencias', {
+        const response = await axios.post('/api/transferencias', {
           contaDestino: this.transferencia.contaDestino,
           valor: this.transferencia.valor,
           dataTransferencia: this.transferencia.dataTransferencia
@@ -71,6 +78,7 @@ export default {
       }
     },
     limparFormulario() {
+      this.transferencia.contaOrigem = '';
       this.transferencia.contaDestino = '';
       this.transferencia.valor = null;
       this.transferencia.dataTransferencia = this.hoje();
@@ -78,6 +86,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+/* ... seus estilos ... */
+</style>
 
 <style scoped>
 form {
